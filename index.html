@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mine Sweeper</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="info">
+      <div class="timer">00:00:00</div>
+      <div class="control">
+        <button class="start">restart</button>
+
+        <div class="level">
+          level
+          <input type="radio" id="one" name="levelchoice" value="one" />
+          <label for="one">1</label>
+          <input type="radio" id="two" name="levelchoice" value="two" checked />
+          <label for="two">2</label>
+          <input type="radio" id="three" name="levelchoice" value="three" />
+          <label for="three">3</label>
+        </div>
+      </div>
+    </div>
+    <div class="playground">
+      <div class="grid"></div>
+      <div class="wincard">
+        You Win! The time spent is: <span class="finaltime"></span>
+      </div>
+      <div class="losecard">Oops... lost</div>
+    </div>
+  </body>
+</html>

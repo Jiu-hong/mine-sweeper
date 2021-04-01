@@ -1,0 +1,142 @@
+:root {
+  --width: 15;
+  --height: 15;
+  --light-grass: rgb(181, 224, 100);
+  --dark-grass: rgb(161, 207, 74);
+  --light-ground: rgb(222, 184, 135);
+  --dark-ground: rgb(201, 166, 120);
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  background: skyblue;
+  height: 100vh;
+  width: 100vw;
+  min-width: 255px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1em;
+  background: linear-gradient(skyblue 80%, var(--dark-grass) 0);
+}
+
+body::before {
+  content: "";
+  position: absolute;
+
+  top: 0%;
+  left: 0;
+  bottom: 30%;
+  right: 30%;
+  background-image: radial-gradient(orange, rgb(255, 165, 73), transparent 40%);
+  background-size: 30vmin 30vmin;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(var(--width), 1fr);
+  grid-template-rows: repeat(var(--height), 1fr);
+}
+.grid div {
+  width: calc((90vmin - 3em) / var(--width));
+  height: calc((90vmin - 3em) / var(--height));
+  min-width: 10px;
+  min-height: 10px;
+  max-width: 35px;
+  max-height: 35px;
+  margin: auto;
+}
+
+.bomb.show {
+  background-image: radial-gradient(
+    darkgray 10%,
+    rgb(14, 13, 13) 60%,
+    transparent 65%
+  );
+}
+
+.light {
+  background-color: var(--light-grass);
+}
+.dark {
+  background-color: var(--dark-grass);
+}
+.light.taken {
+  background-color: rgb(222, 184, 135);
+}
+
+.dark.taken {
+  background-color: rgb(201, 166, 120);
+}
+
+.wincard,
+.losecard {
+  position: absolute;
+  padding: 1em;
+
+  top: 30%;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  width: 50%;
+
+  /* background: rgba(36, 154, 201, 0.9); */
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  transform: scale(0);
+  transform-origin: 0 0;
+  transition: transform 250ms ease-in-out;
+}
+.wincard.show,
+.losecard.show {
+  transform: translateX(-50%) scale(1);
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  width: calc(90vmin - 1em);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.1em;
+}
+
+.control {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.playground {
+  flex: 9;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.1em;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  text-transform: uppercase;
+  max-height: 20px;
+  background: burlywood;
+}
+
+button:active {
+  transform: scale(1.2);
+}
+
+button:hover {
+  background: var(--dark-ground);
+  color: white;
+}
