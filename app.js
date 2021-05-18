@@ -241,8 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       square.oncontextmenu = function (e) {
         e.preventDefault();
-        // alert("Right Click");
-        // square.classList.toggle("right");
         square.textContent = square.textContent === "⛳" ? "" : "⛳";
       };
     });
