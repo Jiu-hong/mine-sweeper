@@ -241,6 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       square.oncontextmenu = function (e) {
         e.preventDefault();
+        if (square.textContent && square.textContent !== "⛳") return;
+        console.log("square.textContent:", square.textContent);
         square.textContent = square.textContent === "⛳" ? "" : "⛳";
       };
     });
