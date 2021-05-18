@@ -238,6 +238,13 @@ document.addEventListener("DOMContentLoaded", () => {
       handlers.push(wrapperFunc);
 
       square.addEventListener("click", wrapperFunc);
+
+      square.oncontextmenu = function (e) {
+        e.preventDefault();
+        // alert("Right Click");
+        // square.classList.toggle("right");
+        square.textContent = square.textContent === "⛳" ? "" : "⛳";
+      };
     });
   };
 
